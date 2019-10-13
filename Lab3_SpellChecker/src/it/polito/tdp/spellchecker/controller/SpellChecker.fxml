@@ -27,7 +27,7 @@
                   <ComboBox fx:id="boxLingua" onAction="#doSelect" prefWidth="150.0" />
                </children>
             </HBox>
-            <TextArea prefHeight="200.0" prefWidth="200.0" />
+            <TextArea fx:id="txtPhrase" prefHeight="200.0" prefWidth="200.0" />
             <HBox alignment="CENTER" prefHeight="119.0" prefWidth="402.0">
                <children>
                   <Label alignment="BOTTOM_LEFT" text="Wrong words">
@@ -41,7 +41,7 @@
                      </effect></Button>
                </children>
             </HBox>
-            <TextArea prefHeight="200.0" prefWidth="200.0" />
+            <TextArea fx:id="txtWrongWords" editable="false" prefHeight="200.0" prefWidth="200.0" />
             <HBox alignment="TOP_RIGHT" prefHeight="73.0" prefWidth="402.0">
                <children>
                   <Label fx:id="lblError" prefHeight="17.0" prefWidth="175.0" text="Error" textFill="#f51414" />

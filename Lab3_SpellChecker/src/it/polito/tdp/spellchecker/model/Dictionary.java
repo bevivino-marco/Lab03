@@ -20,6 +20,7 @@ public class Dictionary {
 
 
 	public void loadDictionary(String dizionarioFile) {
+		dizionario.clear();
 		try { FileReader fr = new FileReader ( "rsc/dicionarioFile");
 		      BufferedReader br = new BufferedReader (fr);
 		      String word ;
@@ -98,7 +99,10 @@ public class Dictionary {
 	public void setLp(List<RichWord> lp) {
 		this.lp = lp;
 	}
-	
+	public void Reset() {
+		lp.clear();
+		parole.clear();
+	}
 	
 	
 
