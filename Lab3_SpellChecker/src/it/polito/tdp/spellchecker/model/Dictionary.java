@@ -6,16 +6,17 @@ import java.util.*;
 
 public class Dictionary {
 	//private static final String String = null;
-	private List <String> dizionario;
-	private List <String> parole;
-	private List <RichWord> lp;
+	private List <RichWord> dizionario;
+	//private List <String> parole;
+	//private List <RichWord> lp;
+	RichWord rW ;
 	
 	
 	public Dictionary() {
 		
-		dizionario = new LinkedList <String>();
-		parole = new LinkedList <String>();
-		lp = new LinkedList <RichWord>();
+		dizionario = new LinkedList <RichWord>();
+		//parole = new LinkedList <String>();
+		//lp = new LinkedList <RichWord>();
 	}
 
 
@@ -25,18 +26,19 @@ public class Dictionary {
 		      BufferedReader br = new BufferedReader (fr);
 		      String word ;
 		      while ((word = br.readLine())!=null) {
-		    	  dizionario.add(word);
+		    	  //dizionario.add(word);
+		    	  rW = new RichWord(word);
+		    	  dizionario.add(rW);
 		    	  
 		      }
 		      br.close();
 			
 		}catch(Exception e){
 			System.out.println("errore nella lettura del file");
-			
 		}
 		
 	}
-	public List <String> creaParole (String txt) {
+	/*public List <String> creaParole (String txt) {
 		txt.replaceAll("[.,\\/#!$%\\*;:{}=\\-_`~()\\[\\]\"]", "");
 		StringTokenizer st = new StringTokenizer(txt, " ");
 	    if (!st.hasMoreElements()) {
@@ -52,22 +54,18 @@ public class Dictionary {
 	    }
 	    return parole;
 		
-	}
+	}*/
 	
 	
-	public List <RichWord> spellCheckText(List <String> frase){
+	public List <RichWord> spellCheckText(List <String> listaW){
 		List <RichWord> paroleErrate = new LinkedList <RichWord>();
-		int indirizzo = -1;
-		for (String p : frase) {
-            for (RichWord w : lp) {
-            	if (w.getParola().equals(p)) {
-            		indirizzo = lp.indexOf(w);
-            	}
-            	if (!lp.get(indirizzo).isCorrect()) {
-            		paroleErrate.add(lp.get(indirizzo));
-            	}
-            	
-            }
+		RichWord w;
+
+		for (String p : listaW) {
+			w = new RichWord (p);
+			if (!dizionario.contains(w)) {
+				paroleErrate.add(w);
+			}
 		}
 		return paroleErrate;
 	
@@ -82,7 +80,7 @@ public class Dictionary {
 	}
 
 
-	public List<String> getDizionario() {
+	/*public List<String> getDizionario() {
 		return dizionario;
 	}
 
@@ -99,11 +97,8 @@ public class Dictionary {
 
 	public void setLp(List<RichWord> lp) {
 		this.lp = lp;
-	}
-	public void Reset() {
-		lp.clear();
-		parole.clear();
-	}
+	}*/
+
 	
 	
 

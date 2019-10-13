@@ -8,13 +8,13 @@ public class RichWord {
 		
 		this.parola = parola;
 	}
-	public boolean isCorrect() {
+	/*public boolean isCorrect() {
 		Dictionary d = new Dictionary();
 		if (d.getDizionario().contains(this))
 			return true;
 		return false;
 		
-	}
+	}*/
 	public String getParola() {
 		return parola;
 	}
