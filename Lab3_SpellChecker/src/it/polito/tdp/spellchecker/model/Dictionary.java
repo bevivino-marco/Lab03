@@ -36,7 +36,7 @@ public class Dictionary {
 		}
 		
 	}
-	public void creaParole (String txt) {
+	public List <String> creaParole (String txt) {
 		txt.replaceAll("[.,\\/#!$%\\*;:{}=\\-_`~()\\[\\]\"]", "");
 		StringTokenizer st = new StringTokenizer(txt, " ");
 	    if (!st.hasMoreElements()) {
@@ -50,6 +50,7 @@ public class Dictionary {
 	    	parole.add(w.getParola());
 	    	
 	    }
+	    return parole;
 		
 	}
 	

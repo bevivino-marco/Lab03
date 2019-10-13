@@ -1,6 +1,7 @@
 package it.polito.tdp.spellchecker.controller;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import it.polito.tdp.spellchecker.model.Dictionary;
@@ -13,6 +14,7 @@ import javafx.scene.control.TextArea;
 
 public class SpellCheckerController {
 	private Dictionary model;
+	private List <String> InputTxtList;
 
     @FXML
     private ResourceBundle resources;
@@ -51,12 +53,28 @@ public class SpellCheckerController {
 
     @FXML
     void doSelect(ActionEvent event) {
-    	
+    	if ((boxLingua.getValue()!=null)) {
+    		txtWrongWords.clear();
+    		txtPhrase.clear();
+    	}else {
+    		txtPhrase.appendText("selezionare una lingua !\n");
+    	}
 
     }
 
     @FXML
     void doSpellCheck(ActionEvent event) {
+    	if (boxLingua.getValue()==null) {
+    		txtPhrase.appendText("selezionare una lingua !\n");
+    	}
+    	if (txtPhrase.getText() == null) {
+    		txtPhrase.appendText("scrivere una frase da tradurre !\n");
+    	}
+    	
+    	model.loadDictionary(boxLingua.getValue());
+    	
+        txtWrongWords.appendText(model.getParoleErrate(model.spellCheckText(model.creaParole(txtPhrase.getText()))));
+    	
 
     }
 
