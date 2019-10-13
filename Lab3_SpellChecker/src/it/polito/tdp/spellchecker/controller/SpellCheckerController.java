@@ -4,13 +4,16 @@ package it.polito.tdp.spellchecker.controller;
 
     import java.net.URL;
 	import java.util.ResourceBundle;
-	import javafx.event.ActionEvent;
+
+import it.polito.tdp.spellchecker.model.Dictionary;
+import javafx.event.ActionEvent;
 	import javafx.fxml.FXML;
 	import javafx.scene.control.Button;
 	import javafx.scene.control.ComboBox;
 	import javafx.scene.control.Label;
 
 	public class SpellCheckerController {
+		Dictionary model ;
 
 	    @FXML
 	    private ResourceBundle resources;
@@ -57,6 +60,12 @@ package it.polito.tdp.spellchecker.controller;
 	        assert lblPerformance != null : "fx:id=\"lblPerformance\" was not injected: check your FXML file 'SpellChecker.fxml'.";
 
 	    }
+
+		public void setModel(Dictionary model) {
+			// TODO Auto-generated method stub
+			this.model= model;
+			
+		}
 	}
 
 	
